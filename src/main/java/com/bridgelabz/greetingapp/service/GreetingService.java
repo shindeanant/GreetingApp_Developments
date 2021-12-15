@@ -49,4 +49,13 @@ public class GreetingService implements IGreetingService {
         }
         return update.get();
     }
+    @Override
+    public String deleteGreetMessage(long id) {
+        Optional<User> greetingMessage = iGreetingRepository.findById(id);
+        if (greetingMessage.isPresent()) {
+            iGreetingRepository.delete(greetingMessage.get());
+            return "Record Deleted";
+        }
+        return "Record not available";
+    }
 }

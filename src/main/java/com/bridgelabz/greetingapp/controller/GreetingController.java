@@ -9,6 +9,7 @@ import com.bridgelabz.greetingapp.model.User;
 import com.bridgelabz.greetingapp.service.IGreetingService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -68,6 +69,10 @@ import org.springframework.web.bind.annotation.RestController;
         public User editGreetMesage(@PathVariable long id, @RequestBody UserDto userDto) {
             return greetingService.updateGreetMessage(id, userDto);
 
+        }
+        @DeleteMapping("/deletemessage/{id}")
+        public String deleteGreetMessage(@PathVariable long id) {
+            return greetingService.deleteGreetMessage(id);
         }
 
 

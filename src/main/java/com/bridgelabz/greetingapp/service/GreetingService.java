@@ -7,6 +7,7 @@ import com.bridgelabz.greetingapp.dto.UserDto;
 import com.bridgelabz.greetingapp.model.Greeting;
 import com.bridgelabz.greetingapp.model.User;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -33,5 +34,9 @@ public class GreetingService implements IGreetingService {
     public User getById(long id) {
         Optional<User> greetById = iGreetingRepository.findById(id);
         return greetById.orElse(null);
+    }
+    @Override
+    public List<User> getAllGreetingMessages() {
+        return iGreetingRepository.findAll();
     }
 }

@@ -1,5 +1,6 @@
 package com.bridgelabz.greetingapp.controller;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.bridgelabz.greetingapp.dto.UserDto;
@@ -57,6 +58,10 @@ import org.springframework.web.bind.annotation.RestController;
         @GetMapping("/find")
         public User findGreetById(@RequestParam long id) {
             return greetingService.getById(id);
+        }
+        @GetMapping("/allgreetings")
+        public List<User> findAllGreeting() {
+            return greetingService.getAllGreetingMessages();
         }
 
 
